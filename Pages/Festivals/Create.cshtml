@@ -1,0 +1,44 @@
+﻿@page
+@model fesitval_dashboard.Pages.Festival.CreateModel
+
+        @{
+        ViewData["Title"] = "Create";
+        }
+        
+        <h1>Create</h1>
+        
+    <h4>Fesitval</h4>
+    <hr />
+    <div class="row">
+    <div class="col-md-4">
+    <form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Fesitval.Naam" class="control-label"></label>
+                <input asp-for="Fesitval.Naam" class="form-control" />
+                <span asp-validation-for="Fesitval.Naam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fesitval.Locatie" class="control-label"></label>
+                <input asp-for="Fesitval.Locatie" class="form-control" />
+                <span asp-validation-for="Fesitval.Locatie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fesitval.Datum" class="control-label"></label>
+                <input asp-for="Fesitval.Datum" class="form-control" />
+                <span asp-validation-for="Fesitval.Datum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
