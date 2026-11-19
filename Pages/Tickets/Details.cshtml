@@ -1,0 +1,31 @@
+@page
+@model fesitval_dashboard.Pages.Tickets.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Ticket</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Ticket.Festival)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Ticket.Festival!.Naam)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Ticket.Tickettype)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Ticket.Tickettype!.Naam)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Ticket.NaamKoper)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Ticket.NaamKoper)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Ticket.EmailKoper)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Ticket.EmailKoper)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Ticket.Prijs)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Ticket.Prijs)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Ticket.Verkoopdatum)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Ticket.Verkoopdatum)</dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Ticket.Id">Edit</a> |
+    <a asp-page="./Index">Terug naar de lijst</a>
+</div>

@@ -1,0 +1,60 @@
+@page "{id:int?}"
+@model fesitval_dashboard.Pages.Tickets.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Ticket</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Ticket.Id" />
+            <div class="form-group">
+                <label asp-for="Ticket.FestivalId" class="control-label"></label>
+                <select asp-for="Ticket.FestivalId" class="form-select" asp-items="ViewBag.FestivalId"></select>
+                <span asp-validation-for="Ticket.FestivalId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.TickettypeId" class="control-label"></label>
+                <select asp-for="Ticket.TickettypeId" class="form-select" asp-items="ViewBag.TickettypeId"></select>
+                <span asp-validation-for="Ticket.TickettypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.NaamKoper" class="control-label"></label>
+                <input asp-for="Ticket.NaamKoper" class="form-control" />
+                <span asp-validation-for="Ticket.NaamKoper" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.EmailKoper" class="control-label"></label>
+                <input asp-for="Ticket.EmailKoper" class="form-control" />
+                <span asp-validation-for="Ticket.EmailKoper" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.Prijs" class="control-label"></label>
+                <input asp-for="Ticket.Prijs" class="form-control" />
+                <span asp-validation-for="Ticket.Prijs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ticket.Verkoopdatum" class="control-label"></label>
+                <input asp-for="Ticket.Verkoopdatum" class="form-control" />
+                <span asp-validation-for="Ticket.Verkoopdatum" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Terug naar de lijst</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,42 @@
+@page
+@model fesitval_dashboard.Pages.Tickets.IndexModel
+
+@{
+    ViewData["Title"] = "Tickets";
+}
+
+<h1>Tickets</h1>
+
+<p>
+    <a asp-page="Create">Nieuw ticket boeken</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Ticket[0].Festival)</th>
+            <th>@Html.DisplayNameFor(model => model.Ticket[0].Tickettype)</th>
+            <th>@Html.DisplayNameFor(model => model.Ticket[0].NaamKoper)</th>
+            <th>@Html.DisplayNameFor(model => model.Ticket[0].EmailKoper)</th>
+            <th>@Html.DisplayNameFor(model => model.Ticket[0].Prijs)</th>
+            <th>@Html.DisplayNameFor(model => model.Ticket[0].Verkoopdatum)</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Ticket) {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Festival!.Naam)</td>
+            <td>@Html.DisplayFor(modelItem => item.Tickettype!.Naam)</td>
+            <td>@Html.DisplayFor(modelItem => item.NaamKoper)</td>
+            <td>@Html.DisplayFor(modelItem => item.EmailKoper)</td>
+            <td>@Html.DisplayFor(modelItem => item.Prijs)</td>
+            <td>@Html.DisplayFor(modelItem => item.Verkoopdatum)</td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

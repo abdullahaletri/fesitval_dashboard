@@ -17,6 +17,14 @@ builder.Services.AddDbContext<FestivalDbContext>(options =>
 
 var app = builder.Build();
 
+// Testgegevens toevoegen (doet niets als ze er al zijn)
+using (var bereik = app.Services.CreateScope())
+{
+    var context = bereik.ServiceProvider
+        .GetRequiredService<FestivalDbContext>();
+    SeedData.VulDatabase(context);
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
